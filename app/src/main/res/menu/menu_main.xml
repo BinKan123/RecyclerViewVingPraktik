@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+
+    <item android:id="@+id/start"
+    android:icon="@drawable/start"
+    android:title="start">
+    </item>
+
+    <item android:id="@+id/lastMin"
+        android:icon="@drawable/lastmin"
+        android:title="Sista minut">
+    </item>
+
+    <item android:id="@+id/bokaResa"
+        android:icon="@drawable/book"
+        android:title="Boka resa">
+    </item>
+
+    <item android:id="@+id/inspiration"
+        android:icon="@drawable/globe"
+        android:title="inspiration">
+    </item>
+
+    <item android:id="@+id/minSida"
+        android:icon="@drawable/minsida"
+        android:title="Min Sida">
+    </item>
+
+
+
+
+</menu>
