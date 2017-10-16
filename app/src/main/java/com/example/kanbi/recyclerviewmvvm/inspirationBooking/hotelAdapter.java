@@ -96,12 +96,7 @@ public class hotelAdapter extends RecyclerView.Adapter <hotelAdapter.ViewHolder>
             public void onClick(View view) {
                 if(onClicklistener!=null)
                 {
-
                     onClicklistener.btnClick(item);
-                    //Intent intent = new Intent(Intent.ACTION_VIEW);
-                    //intent.setData(Uri.parse(item.getNewURL()));
-                    //context.startActivity(intent);
-
 
                 }
 

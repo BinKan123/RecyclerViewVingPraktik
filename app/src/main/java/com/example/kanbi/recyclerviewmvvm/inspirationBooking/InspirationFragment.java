@@ -46,7 +46,7 @@ public class InspirationFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity().getApplication(), inspirationHotel.class);
-                startActivity(intent);
+                getActivity().startActivity(intent);
             }
 
         });
