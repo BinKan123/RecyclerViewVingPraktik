@@ -28,7 +28,7 @@ import java.util.ArrayList;
 
 public class inspirationHotel  extends AppCompatActivity implements hotelAdapter.ButtonClickListner {
 
-    private static final String URL_Data="https://api.myjson.com/bins/eoyep";
+    private static final String URL_Data="https://api.myjson.com/bins/12lj49";
 
     private RecyclerView recyclerView;
     private hotelAdapter adapter;

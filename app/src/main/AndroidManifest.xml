@@ -31,7 +31,7 @@
             android:label="@string/title_activity_main3"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".inspirationHotel"
+            android:name=".inspirationBooking.inspirationHotel"
             android:label="inspirationHotel"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

@@ -23,6 +23,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import static com.example.kanbi.recyclerviewmvvm.R.id.hotelImage;
+
 /**
  * Created by kanbi on 15/10/2017.
  */
@@ -61,7 +63,6 @@ public class hotelAdapter extends RecyclerView.Adapter <hotelAdapter.ViewHolder>
             hotelGroup=(TextView) itemView.findViewById(R.id.hotelGroup);
             hotelType=(TextView) itemView.findViewById(R.id.hotelType);
             hotelDetails=(TextView) itemView.findViewById(R.id.hotelDetails);
-            hotelDetails=(TextView) itemView.findViewById(R.id.hotelDetails);
             newURL=(TextView) itemView.findViewById(R.id.newURL);
             hotelImage=(ImageView) itemView.findViewById(R.id.hotelImage);
             hotelBtn=(Button) itemView.findViewById(R.id.hotelBtn);
@@ -82,6 +83,7 @@ public class hotelAdapter extends RecyclerView.Adapter <hotelAdapter.ViewHolder>
     @Override
     public void onBindViewHolder(final hotelAdapter.ViewHolder holder, final int i) {
         final hotelDataSet item = hotelData.get(i);
+
         holder.hotelGroup.setText(item.getHotelGroup());
         holder.hotelType.setText(item.getHotelType());
         holder.hotelDetails.setText(item.getHotelDetails());
