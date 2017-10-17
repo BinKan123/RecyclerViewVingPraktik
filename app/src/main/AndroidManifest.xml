@@ -10,6 +10,7 @@
         android:label=""
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
         <activity
             android:name=".SplashScreen"
             android:theme="@style/AppTheme.NoActionBar">
@@ -77,6 +78,10 @@
         <activity
             android:name=".minSida.LoginActivity"
             android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".minSida.EmailLogin"
+            android:label="@string/title_activity_email_login"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

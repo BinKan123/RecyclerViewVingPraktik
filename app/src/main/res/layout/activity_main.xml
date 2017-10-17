@@ -12,7 +12,6 @@
     >
 
 
-    <include layout="@layout/content_main"/>
     <include android:id="@+id/app_bar"
         layout="@layout/toolbartop"/>
 
@@ -26,5 +25,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true">
     </android.support.design.widget.BottomNavigationView>
+
+    <include layout="@layout/content_main"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

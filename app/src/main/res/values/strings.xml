@@ -27,5 +27,7 @@
     <string name="title_activity_restips">restipsActivity</string>
     <string name="title_activity_warminfo">warminfoActivity</string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_email_login">EmailLogin</string>
+    <string name="facebook_app_id">290579501428883</string>
 
 </resources>
