@@ -16,5 +16,16 @@
     <string name="BookaResaFragment">BookaResaFragment</string>
     <string name="InspirationFragment">InspirationFragment</string>
     <string name="MinSidaFragment">MinSidaFragment</string>
+    <string name="title_activity_sista_minute">sistaMinuteActivity</string>
+    <string name="title_activity_flyg_hotell_web">flygHotellWeb</string>
+    <string name="title_activity_city_web">cityWeb</string>
+    <string name="title_activity_kryssning_web">kryssningWeb</string>
+    <string name="title_activity_flyg_web">flygWeb</string>
+    <string name="title_activity_hotell_web">hotellWeb</string>
+    <string name="title_activity_destination">destinationActivity</string>
+    <string name="title_activity_warmguiden">warmguidenActivity</string>
+    <string name="title_activity_restips">restipsActivity</string>
+    <string name="title_activity_warminfo">warminfoActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
 
 </resources>

@@ -28,7 +28,7 @@ import java.util.ArrayList;
 
 public class inspirationHotel  extends AppCompatActivity implements hotelAdapter.ButtonClickListner {
 
-    private static final String URL_Data="https://api.myjson.com/bins/12lj49";
+    private static final String URL_Data="https://api.myjson.com/bins/fewtl";
 
     private RecyclerView recyclerView;
     private hotelAdapter adapter;
@@ -71,7 +71,7 @@ public class inspirationHotel  extends AppCompatActivity implements hotelAdapter
 
                             for (int i=0;i<array.length();i++){
                                 JSONObject jo=array.getJSONObject(i);
-                                hotelDataSet item=new hotelDataSet(jo.getString("Group"),jo.getString("Type"),jo.getString("photosURL"),jo.getString("newURL"),jo.getString("Details"));
+                                hotelDataSet item=new hotelDataSet(jo.getString("photosURL"),jo.getString("Group"),jo.getString("Type"),jo.getString("Details"),jo.getString("newURL"));
                                 hotelData.add(item);
                             }
                             adapter=new hotelAdapter(hotelData, inspirationHotel.this);

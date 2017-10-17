@@ -17,7 +17,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.kanbi.recyclerviewmvvm.bokaResa.BokaResaFragment;
 import com.example.kanbi.recyclerviewmvvm.inspirationBooking.InspirationFragment;
+import com.example.kanbi.recyclerviewmvvm.minSida.MinSidaFragment;
+import com.example.kanbi.recyclerviewmvvm.sistaMinuten.SistaMinFragment;
 
 
 public class MainActivity extends AppCompatActivity {

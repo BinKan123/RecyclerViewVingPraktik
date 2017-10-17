@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.kanbi.recyclerviewmvvm.SistaMinFragment">
+    tools:context="com.example.kanbi.recyclerviewmvvm.sistaMinuten.SistaMinFragment">
 
     <ImageView
         android:layout_marginTop="40dp"
@@ -30,20 +30,20 @@
         app:layout_constraintLeft_toLeftOf="@+id/imageView5" />
 
     <Button
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/button"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton6"
-        app:layout_constraintVertical_bias="0.13"
-        app:layout_constraintLeft_toLeftOf="@+id/imageButton6"
-        app:layout_constraintRight_toRightOf="@+id/imageButton6"
-        app:layout_constraintHorizontal_bias="0.39"
+        android:id="@+id/searchSista"
         style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="240dp"
+
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundcorner"
+        android:backgroundTint="@android:color/holo_orange_dark"
         android:text="SÖK"
         android:textSize="18sp"
-        android:backgroundTint="@android:color/holo_orange_dark"
-        android:background="@drawable/roundcorner" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintLeft_toLeftOf="@+id/imageButton6"
+        app:layout_constraintRight_toRightOf="@+id/imageButton6"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton6"
+        app:layout_constraintVertical_bias="0.13" />
 
 </android.support.constraint.ConstraintLayout>

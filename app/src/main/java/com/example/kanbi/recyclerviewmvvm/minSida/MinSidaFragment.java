@@ -1,4 +1,4 @@
-package com.example.kanbi.recyclerviewmvvm;
+package com.example.kanbi.recyclerviewmvvm.minSida;
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,6 +8,8 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.kanbi.recyclerviewmvvm.R;
 
 /**
  * Created by kanbi on 10/10/2017.

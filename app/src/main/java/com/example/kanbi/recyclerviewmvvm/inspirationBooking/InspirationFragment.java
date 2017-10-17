@@ -39,6 +39,51 @@ public class InspirationFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.inspiration_fragment, container, false);
+
+
+
+        //destination
+        Button destinationButton = (Button) view.findViewById(R.id.destination);
+
+        destinationButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity().getApplication(), destinationActivity.class);
+                getActivity().startActivity(intent);
+            }
+
+        });
+
+        //värmeguiden
+        Button warmguidenButton = (Button) view.findViewById(R.id.warmguiden);
+
+        warmguidenButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity().getApplication(),warminfoActivity .class);
+                getActivity().startActivity(intent);
+            }
+
+        });
+
+
+        //restips
+        Button restipsButton = (Button) view.findViewById(R.id.restips);
+
+        restipsButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity().getApplication(), restipsActivity.class);
+                getActivity().startActivity(intent);
+            }
+
+        });
+
+
+        //hotel
         Button hotelButton = (Button) view.findViewById(R.id.ourHotel);
 
         hotelButton.setOnClickListener(new View.OnClickListener() {

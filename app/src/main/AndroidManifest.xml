@@ -38,7 +38,46 @@
             android:name=".Main4Activity"
             android:label="@string/title_activity_main4"
             android:theme="@style/AppTheme.NoActionBar" />
-
+        <activity
+            android:name=".sistaMinuten.sistaMinuteActivity"
+            android:label="@string/title_activity_sista_minute"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".bokaResa.flygHotellWeb"
+            android:label="@string/title_activity_flyg_hotell_web"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".bokaResa.cityWeb"
+            android:label="@string/title_activity_city_web"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".bokaResa.kryssningWeb"
+            android:label="@string/title_activity_kryssning_web"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".bokaResa.flygWeb"
+            android:label="@string/title_activity_flyg_web"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".bokaResa.hotellWeb"
+            android:label="@string/title_activity_hotell_web"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".inspirationBooking.destinationActivity"
+            android:label="@string/title_activity_destination"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".inspirationBooking.restipsActivity"
+            android:label="@string/title_activity_restips"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".inspirationBooking.warminfoActivity"
+            android:label="@string/title_activity_warminfo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".minSida.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

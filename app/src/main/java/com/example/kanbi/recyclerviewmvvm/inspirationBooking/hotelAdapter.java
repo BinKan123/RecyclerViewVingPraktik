@@ -53,7 +53,7 @@ public class hotelAdapter extends RecyclerView.Adapter <hotelAdapter.ViewHolder>
         public TextView hotelGroup;
         public TextView hotelType;
         public TextView hotelDetails;
-        public TextView newURL;
+
         Button hotelBtn;
 
 
@@ -63,7 +63,7 @@ public class hotelAdapter extends RecyclerView.Adapter <hotelAdapter.ViewHolder>
             hotelGroup=(TextView) itemView.findViewById(R.id.hotelGroup);
             hotelType=(TextView) itemView.findViewById(R.id.hotelType);
             hotelDetails=(TextView) itemView.findViewById(R.id.hotelDetails);
-            newURL=(TextView) itemView.findViewById(R.id.newURL);
+
             hotelImage=(ImageView) itemView.findViewById(R.id.hotelImage);
             hotelBtn=(Button) itemView.findViewById(R.id.hotelBtn);
 
@@ -87,7 +87,7 @@ public class hotelAdapter extends RecyclerView.Adapter <hotelAdapter.ViewHolder>
         holder.hotelGroup.setText(item.getHotelGroup());
         holder.hotelType.setText(item.getHotelType());
         holder.hotelDetails.setText(item.getHotelDetails());
-        holder.newURL.setText(item.getNewURL());
+
 
         final Context context = holder.itemView.getContext();
 
