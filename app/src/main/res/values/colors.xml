@@ -7,9 +7,10 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlack">#000000</color>
     <color name="colorDivider">#2fe897</color>
-    <color name="colorBorder">#a7a4a4</color>
+    <color name="colorBorder">#d9d6d6</color>
     <color name="colorExtra">#fffac1</color>
     <color name="colorDarkOrange">#d17b13</color>
     <color name="facebookBlue">#3b5998</color>
-    #3b5998
+    <color name="googleRed"> #dd4b39</color>
+    <color name="lightgray"> #E0E0E0</color>
 </resources>
