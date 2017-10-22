@@ -3,12 +3,8 @@ package com.example.kanbi.recyclerviewmvvm.minSida;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -33,10 +29,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.common.api.Api;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.PendingResult;
-import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -45,13 +38,6 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.facebook.FacebookSdk;
-
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
-import java.util.concurrent.TimeUnit;
-
-import static com.example.kanbi.recyclerviewmvvm.R.drawable.minsida;
 
 public class LoginActivity extends AppCompatActivity {
     //firebase
@@ -86,6 +72,7 @@ public class LoginActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
 
+        //firebase
         firebaseAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -96,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
+        //facebook
         facebookLogin = (LoginButton) findViewById(R.id.loginWithFB);
 
         initializeFacebookLogin();
@@ -151,13 +139,13 @@ public class LoginActivity extends AppCompatActivity {
         forgotPasswordBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                retievePassword();
+                resetPassword();
             }
         });
 
     }
 
-    // check if the user is already loged in
+    // check if the user is already logged in
     @Override
     protected void onStart() {
         super.onStart();
@@ -283,34 +271,35 @@ public class LoginActivity extends AppCompatActivity {
 
 
         //Sign in with email
-    private void emailSignIn() {
+    public void emailSignIn() {
         String email = mEmailField.getText().toString();
         String password = mPasswordField.getText().toString();
 
-        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithEmail:success");
+                            FirebaseUser user = firebaseAuth.getCurrentUser();
 
-            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                    Toast.LENGTH_SHORT).show();
-
-        } else {
-            firebaseAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                Log.d(TAG, "createUserWithEmail:success");
-                                FirebaseUser user = firebaseAuth.getCurrentUser();
-                            }
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
 
                         }
 
-                    });
+                        // ...
+                    }
+                });
 
-        }
+
     }
 
-    private void createEmailAcc() {
+    public void createEmailAcc() {
         String email = mEmailField.getText().toString();
         String password = mPasswordField.getText().toString();
 
@@ -322,8 +311,6 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = firebaseAuth.getCurrentUser();
-                            Intent intent = new Intent(LoginActivity.this, myActivity.class);
-                            startActivity(intent);
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -337,9 +324,10 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
 
+
     }
 
-    private void retievePassword(){
+    public void resetPassword(){
 
         String email = mEmailField.getText().toString();
 

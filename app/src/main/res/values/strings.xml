@@ -29,6 +29,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_email_login">EmailLogin</string>
     <string name="facebook_app_id">290579501428883</string>
+    <string name="fb_login_protocol_scheme">fb290579501428883</string>
     <string name="title_activity_my">myActivity</string>
     <string name="title_activity_test_google_signin">testGoogleSignin</string>
 
