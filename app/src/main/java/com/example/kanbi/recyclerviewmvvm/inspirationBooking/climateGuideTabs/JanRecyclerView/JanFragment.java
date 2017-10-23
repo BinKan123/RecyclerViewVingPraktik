@@ -33,7 +33,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-public class JanFragment extends Fragment implements climateAdapter.ButtonClickListner {
+public class JanFragment extends Fragment implements climateAdapter.OnClickListener {
 
     private static final String TAG="JanFragment";
 
@@ -90,7 +90,7 @@ public class JanFragment extends Fragment implements climateAdapter.ButtonClickL
 
 
                             }
-                            adapter=new climateAdapter(climateData,getActivity());
+                            adapter=new climateAdapter(climateData,getActivity().getApplicationContext());
                             recyclerView.setAdapter(adapter);
 
 
