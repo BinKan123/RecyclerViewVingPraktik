@@ -33,12 +33,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-public class JanFragment extends Fragment {
+public class JanFragment extends Fragment implements climateAdapter.ButtonClickListner {
 
     private static final String TAG="JanFragment";
-    private Button btnTest;
 
-    private static final String URL_Data="https://api.myjson.com/bins/qza3r";
+
+    private static final String URL_Data="https://api.myjson.com/bins/1cslpj";
 
     private RecyclerView recyclerView;
     private climateAdapter adapter;
@@ -50,14 +50,7 @@ public class JanFragment extends Fragment {
             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_jan, container, false);
-        btnTest=(Button) view.findViewById(R.id.btnTest);
 
-        btnTest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(),"tab for Jan",Toast.LENGTH_SHORT).show();
-            }
-        });
 
         recyclerView=(RecyclerView) view.findViewById(R.id.climateRecyclerview);
         recyclerView.setHasFixedSize(true);
@@ -67,6 +60,8 @@ public class JanFragment extends Fragment {
         climateData=new ArrayList<>();
 
         loadRecyclerViewData();
+
+
 
 
         return view;
@@ -92,9 +87,12 @@ public class JanFragment extends Fragment {
                                 JSONObject jo=array.getJSONObject(i);
                                 climateData item=new climateData(jo.getString("Destination"),jo.getString("SunHrs"),jo.getString("WaterTemp"),jo.getString("HighTemp"),jo.getString("LowTemp"),jo.getString("newURL"));
                                 climateData.add(item);
+
+
                             }
-                            adapter=new climateAdapter(climateData);
+                            adapter=new climateAdapter(climateData,getActivity());
                             recyclerView.setAdapter(adapter);
+
 
 
 
@@ -114,20 +112,15 @@ public class JanFragment extends Fragment {
         RequestQueue requestQueue= Volley.newRequestQueue(getActivity());
         requestQueue.add(stringRequest);
 
-
-
     }
 
-
     @Override
-    public void btnClick(climateData itemClicked) {
+    public void onItemClick(climateData itemClicked) {
         itemClicked.getNewURL();
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(itemClicked.getNewURL()));
         startActivity(intent);
     }
-
-
 
 
 }

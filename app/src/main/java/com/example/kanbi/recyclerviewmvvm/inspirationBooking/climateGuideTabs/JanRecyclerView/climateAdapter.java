@@ -23,18 +23,19 @@ public class climateAdapter extends RecyclerView.Adapter <climateAdapter.ViewHol
 
 
     //interface
-    private climateAdapter.ButtonClickListner onClicklistener;
-    public interface ButtonClickListner{
-        void btnClick(climateData itemClicked);
+    private OnClickListener onClicklistener;
+    public interface OnClickListener {
+        void onItemClick(climateData itemClicked);
     }
+
 
     private ArrayList<climateData> climateData;
 
-    public climateAdapter(ArrayList<climateData> climateData,hotelAdapter.ButtonClickListner onClicklistener) {
+    public climateAdapter(ArrayList<climateData> climateData, OnClickListener onClicklistener) {
         this.climateData = climateData;
-        this.onClicklistener=onClicklistener;
-    }
+        this.onClicklistener = onClicklistener;
 
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -44,7 +45,6 @@ public class climateAdapter extends RecyclerView.Adapter <climateAdapter.ViewHol
         public TextView highTemp;
         public TextView lowTemp;
 
-
         public ViewHolder(View itemView) {
             super(itemView);
 
@@ -53,12 +53,9 @@ public class climateAdapter extends RecyclerView.Adapter <climateAdapter.ViewHol
             vattenTemp=(TextView) itemView.findViewById(R.id.waterTemp);
             highTemp=(TextView) itemView.findViewById(R.id.highTemp);
             lowTemp=(TextView) itemView.findViewById(R.id.lowTemp);
-
         }
 
     }
-
-
 
     @Override
     public climateAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -77,23 +74,17 @@ public class climateAdapter extends RecyclerView.Adapter <climateAdapter.ViewHol
         holder.highTemp.setText(item.getHeighTemp());
         holder.lowTemp.setText(item.getLowTemp());
 
-
-        final Context context = holder.itemView.getContext();
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(onClicklistener!=null)
                 {
-                    onClicklistener.btnClick(item);
+                    onClicklistener.onItemClick(item);
 
                 }
 
             }
         });
-
-
-
 
     }
 

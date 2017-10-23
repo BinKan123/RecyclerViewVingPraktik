@@ -19,6 +19,7 @@ import com.example.kanbi.recyclerviewmvvm.Main2Activity;
 import com.example.kanbi.recyclerviewmvvm.Main3Activity;
 import com.example.kanbi.recyclerviewmvvm.Main4Activity;
 import com.example.kanbi.recyclerviewmvvm.R;
+import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.JanRecyclerView.climateAdapter;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class hotelAdapter extends RecyclerView.Adapter <hotelAdapter.ViewHolder>
 
     //interface
     private ButtonClickListner onClicklistener;
-    public interface ButtonClickListner{
+    public interface ButtonClickListner  {
         void btnClick(hotelDataSet itemClicked);
     }
 
