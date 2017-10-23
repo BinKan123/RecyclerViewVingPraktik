@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/waterTemp"
+        android:layout_width="35dp"
+        android:layout_height="27dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="-1dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/vattenTemp"
+        app:layout_constraintLeft_toLeftOf="@+id/sunHr"
+        app:layout_constraintTop_toTopOf="@+id/vattenTemp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/where"
+        android:layout_width="133dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/solTimmer"
+        android:layout_width="98dp"
+        android:layout_height="27dp"
+        android:text="Soltimmer"
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="@+id/sunHr"
+        android:layout_marginTop="9dp"
+        app:layout_constraintBottom_toBottomOf="@+id/sunHr"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintRight_toLeftOf="@+id/highTemp"
+        android:layout_marginRight="116dp" />
+
+    <TextView
+        android:id="@+id/vattenTemp"
+        android:layout_width="117dp"
+        android:layout_height="27dp"
+        android:text="Vattentemperatur"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="83dp"
+        app:layout_constraintTop_toTopOf="@+id/imageView12"
+        android:layout_marginTop="0dp" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/ic_sun"
+        android:backgroundTint="?android:attr/colorMultiSelectHighlight"
+        app:srcCompat="@drawable/ic_sun"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="106dp" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView10"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10"
+        app:srcCompat="@drawable/drop" />
+
+    <TextView
+        android:id="@+id/sunHr"
+        android:layout_width="34dp"
+        android:layout_height="27dp"
+        tools:layout_editor_absoluteX="49dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+        android:layout_marginBottom="-2dp" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_sun"
+        tools:layout_editor_absoluteY="61dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/where"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintHorizontal_bias="0.251" />
+
+    <TextView
+        android:id="@+id/highTemp"
+        android:layout_width="77dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/vattenTemp"
+        app:layout_constraintTop_toTopOf="@+id/lowTemp"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintLeft_toRightOf="@+id/imageView13"
+        android:layout_marginLeft="9dp" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@color/cardview_shadow_start_color"
+        android:backgroundTint="@color/cardview_shadow_start_color"
+        app:srcCompat="@drawable/moon"
+        tools:layout_editor_absoluteY="60dp"
+        app:layout_constraintLeft_toRightOf="@+id/imageView13"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/lowTemp"
+        android:layout_width="77dp"
+        android:layout_height="89dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="98dp"
+        app:layout_constraintBottom_toBottomOf="@+id/highTemp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/imageView14"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintHorizontal_bias="0.0" />
+</android.support.constraint.ConstraintLayout>
