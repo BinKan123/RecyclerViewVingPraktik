@@ -2,12 +2,14 @@ package com.example.kanbi.recyclerviewmvvm;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -19,17 +21,25 @@ import android.widget.Toast;
 
 import com.example.kanbi.recyclerviewmvvm.bokaResa.BokaResaFragment;
 import com.example.kanbi.recyclerviewmvvm.inspirationBooking.InspirationFragment;
+import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.FebFragment;
+import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.JanRecyclerView.JanFragment;
+import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.MarFragment;
+import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.SectionPageAdapter;
 import com.example.kanbi.recyclerviewmvvm.minSida.MinSidaFragment;
 import com.example.kanbi.recyclerviewmvvm.sistaMinuten.SistaMinFragment;
 
 
 public class MainActivity extends AppCompatActivity {
 
-
-    private BottomNavigationView bottomNavigation;
+    //one way to make navigation with FramentTransaction
+   /* private BottomNavigationView bottomNavigation;
     private Fragment fragment;
-    private FragmentManager fragmentManager;
+    private FragmentManager fragmentManager;*/
 
+
+    private NavPageAdapter navPageAdapter;
+    private ViewPager mViewPager;
+    private TabLayout tabLayout;
 
 
     @Override
@@ -37,14 +47,40 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar=(Toolbar) findViewById(R.id.app_bar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("VING");
         toolbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFF")));
 
 
+        //use viewpager to create navigationbar
+
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+
+        navPageAdapter = new NavPageAdapter(getSupportFragmentManager());
+
+        setupViewPager(mViewPager);
+
+        tabLayout.setupWithViewPager(mViewPager);
+
+    }
 
 
+
+
+    private void setupViewPager(ViewPager viewPager){
+        NavPageAdapter adapter=new NavPageAdapter(getSupportFragmentManager());
+        adapter.addFragment(new StartFragment(),"Start");
+        adapter.addFragment(new SistaMinFragment(),"Sista minut");
+        adapter.addFragment(new BokaResaFragment(),"Boka resa");
+        adapter.addFragment(new InspirationFragment(),"Inspiration");
+        adapter.addFragment(new MinSidaFragment(),"Sista minut");
+
+        viewPager.setAdapter(adapter);
+    }
+
+        /*  use FragmentTransaction to make navigationbar
         //Navigation Fragment
 
         bottomNavigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
@@ -108,6 +144,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }
 ;

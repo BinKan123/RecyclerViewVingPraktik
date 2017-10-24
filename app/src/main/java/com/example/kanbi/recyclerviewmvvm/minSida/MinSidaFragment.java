@@ -164,9 +164,6 @@ public class MinSidaFragment extends Fragment {
                     }
                 });
 
-
-
-
         return view;
     }
    // check if the user is already logged in

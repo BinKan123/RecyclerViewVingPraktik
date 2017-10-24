@@ -90,7 +90,7 @@ public class JanFragment extends Fragment implements climateAdapter.OnClickListe
 
 
                             }
-                            adapter=new climateAdapter(climateData,getActivity().getApplicationContext());
+                            adapter=new climateAdapter(climateData, JanFragment.this);
                             recyclerView.setAdapter(adapter);
 
 
