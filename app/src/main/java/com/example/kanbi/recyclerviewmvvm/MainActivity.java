@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new MinSidaFragment(),"Sista minut");
 
         viewPager.setAdapter(adapter);
+        viewPager.setOffscreenPageLimit(4);
     }
 
         /*  use FragmentTransaction to make navigationbar

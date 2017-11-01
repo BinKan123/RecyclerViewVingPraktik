@@ -7,7 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.kanbi.recyclerviewmvvm.R;
 import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.FebFragment;
+import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.JanRecyclerView.AprFragment;
 import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.JanRecyclerView.JanFragment;
+import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.JanRecyclerView.JulFragment;
+import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.JanRecyclerView.JunFragment;
+import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.JanRecyclerView.MayFragment;
 import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.MarFragment;
 import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.SectionPageAdapter;
 
@@ -37,6 +41,11 @@ public class warminfoActivity extends AppCompatActivity {
         adapter.addFragment(new JanFragment(),"JAN");
         adapter.addFragment(new FebFragment(),"FEB");
         adapter.addFragment(new MarFragment(),"MAR");
+        adapter.addFragment(new AprFragment(),"Apr");
+        adapter.addFragment(new MayFragment(),"May");
+        adapter.addFragment(new JunFragment(),"Jun");
+        adapter.addFragment(new JulFragment(),"Jul");
+
         viewPager.setAdapter(adapter);
     }
 
