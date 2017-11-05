@@ -10,13 +10,16 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kanbi.recyclerviewmvvm.bokaResa.BokaResaFragment;
@@ -53,10 +56,14 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFF")));
 
 
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.toolbartop);
+
+
         //use viewpager to create navigationbar
 
         mViewPager = (ViewPager) findViewById(R.id.container);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+         tabLayout = (TabLayout) findViewById(R.id.tabs);
 
         navPageAdapter = new NavPageAdapter(getSupportFragmentManager());
 
@@ -64,10 +71,38 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout.setupWithViewPager(mViewPager);
 
+        createTabIcons();
+
+
+
     }
 
+    //actionbar
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu_toolbar,menu);
 
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_search:
+                Toast.makeText(MainActivity.this,"search",Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.action_myacc:
+                Toast.makeText(MainActivity.this,"myAccount",Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+    //viewpager
 
     private void setupViewPager(ViewPager viewPager){
         NavPageAdapter adapter=new NavPageAdapter(getSupportFragmentManager());
@@ -75,11 +110,42 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new SistaMinFragment(),"Sista minut");
         adapter.addFragment(new BokaResaFragment(),"Boka resa");
         adapter.addFragment(new InspirationFragment(),"Inspiration");
-        adapter.addFragment(new MinSidaFragment(),"Sista minut");
+        adapter.addFragment(new MinSidaFragment(),"Min sida");
 
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(4);
     }
+
+    //icon on tabs
+    private void createTabIcons() {
+
+        TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_icon, null);
+        tabOne.setText("Start");
+        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.start, 0, 0);
+        tabLayout.getTabAt(0).setCustomView(tabOne);
+
+        TextView tabTwo = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_icon, null);
+        tabTwo.setText("Sista minut");
+        tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.lastmin, 0, 0);
+        tabLayout.getTabAt(1).setCustomView(tabTwo);
+
+        TextView tabThree = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_icon, null);
+        tabThree.setText("Boka resa");
+        tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.book, 0, 0);
+        tabLayout.getTabAt(2).setCustomView(tabThree);
+
+        TextView tabFour = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_icon, null);
+        tabFour.setText("Inspiration");
+        tabFour.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.globe, 0, 0);
+        tabLayout.getTabAt(3).setCustomView(tabFour);
+
+        TextView tabFive = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_icon, null);
+        tabFive.setText("Min sida");
+        tabFive.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.minsida, 0, 0);
+        tabLayout.getTabAt(4).setCustomView(tabFive);
+    }
+
+
 
         /*  use FragmentTransaction to make navigationbar
         //Navigation Fragment

@@ -13,8 +13,8 @@
     <include
         android:id="@+id/app_bar"
         layout="@layout/toolbartop"
-        android:layout_height="0dp"
-        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         app:layout_constraintRight_toRightOf="parent"

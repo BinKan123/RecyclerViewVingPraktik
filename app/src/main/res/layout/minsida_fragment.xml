@@ -70,12 +70,12 @@
 
     <Button
         android:id="@+id/newAcc"
-        android:layout_width="118dp"
-        android:layout_height="37dp"
-        android:layout_marginLeft="8dp"
+        android:layout_width="114dp"
+        android:layout_height="29dp"
+        android:layout_marginLeft="-1dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:alpha="0.6"
+        android:alpha="0.4"
         android:background="@color/lightoriange"
         android:text=" Ny konto?"
         android:textAlignment="textStart"
@@ -85,22 +85,23 @@
 
     <Button
         android:id="@+id/forgotPW"
-        android:layout_width="117dp"
-        android:layout_height="41dp"
+        android:layout_width="119dp"
+        android:layout_height="29dp"
+        android:layout_marginBottom="0dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:alpha="0.8"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        android:alpha="0.4"
         android:background="@color/lightoriange"
         android:text="Fel lösenord?"
         android:textAlignment="textEnd"
         android:textSize="12sp"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintBottom_toBottomOf="@+id/newAcc"
+        app:layout_constraintHorizontal_bias="0.703"
         app:layout_constraintLeft_toRightOf="@+id/newAcc"
         app:layout_constraintRight_toRightOf="@+id/passwordInput"
         app:layout_constraintTop_toTopOf="@+id/newAcc"
-        android:layout_marginTop="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/newAcc"
-        android:layout_marginBottom="0dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/loginWithEmail"
@@ -114,7 +115,7 @@
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/forgotPW"
         app:layout_constraintHorizontal_bias="0.502" />
 
@@ -149,8 +150,8 @@
 
     <Button
         android:id="@+id/bokningBtn"
-        android:layout_width="260dp"
-        android:layout_height="57dp"
+        android:layout_width="261dp"
+        android:layout_height="38dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/border"
         android:text="Lägg till bokning direkt"

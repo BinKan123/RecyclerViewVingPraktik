@@ -8,7 +8,7 @@
     tools:context="com.example.kanbi.recyclerviewmvvm.inspirationBooking.InspirationFragment">
 
     <ImageView
-        android:layout_marginTop="40dp"
+
         android:layout_width="wrap_content"
         android:layout_height="511dp"
         app:srcCompat="@drawable/inspiration"
