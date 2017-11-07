@@ -40,4 +40,6 @@ public class NavPageAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return mfragmentList.size();
     }
+
+
 }

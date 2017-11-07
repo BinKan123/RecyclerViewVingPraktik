@@ -1,6 +1,7 @@
 package com.example.kanbi.recyclerviewmvvm;
 
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -43,12 +44,20 @@ public class MainActivity extends AppCompatActivity {
     private NavPageAdapter navPageAdapter;
     private ViewPager mViewPager;
     private TabLayout tabLayout;
+    public int[] tabIcons = {
+            R.drawable.start,
+            R.drawable.lastmin,
+            R.drawable.book,
+            R.drawable.globe,
+            R.drawable.minsida
+    };
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
@@ -58,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.toolbartop);
+
 
 
         //use viewpager to create navigationbar
@@ -73,6 +83,27 @@ public class MainActivity extends AppCompatActivity {
 
         createTabIcons();
 
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+
+
+               @Override
+               public void onTabSelected(TabLayout.Tab tab) {
+
+                   mViewPager.setCurrentItem(tab.getPosition());
+                   tab.getIcon().setColorFilter(getResources().getColor(R.color.colorDarkOrange),PorterDuff.Mode.SRC_IN)  ;
+               }
+
+               @Override
+               public void onTabUnselected(TabLayout.Tab tab) {
+                      tab.getIcon().setColorFilter(Color.BLACK,PorterDuff.Mode.SRC_IN)  ;
+               }
+
+               @Override
+               public void onTabReselected(TabLayout.Tab tab) {
+
+               }
+
+        });
 
 
     }
@@ -116,34 +147,15 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setOffscreenPageLimit(4);
     }
 
-    //icon on tabs
     private void createTabIcons() {
-
-        TextView tabOne = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_icon, null);
-        tabOne.setText("Start");
-        tabOne.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.start, 0, 0);
-        tabLayout.getTabAt(0).setCustomView(tabOne);
-
-        TextView tabTwo = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_icon, null);
-        tabTwo.setText("Sista minut");
-        tabTwo.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.lastmin, 0, 0);
-        tabLayout.getTabAt(1).setCustomView(tabTwo);
-
-        TextView tabThree = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_icon, null);
-        tabThree.setText("Boka resa");
-        tabThree.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.book, 0, 0);
-        tabLayout.getTabAt(2).setCustomView(tabThree);
-
-        TextView tabFour = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_icon, null);
-        tabFour.setText("Inspiration");
-        tabFour.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.globe, 0, 0);
-        tabLayout.getTabAt(3).setCustomView(tabFour);
-
-        TextView tabFive = (TextView) LayoutInflater.from(this).inflate(R.layout.custom_icon, null);
-        tabFive.setText("Min sida");
-        tabFive.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.minsida, 0, 0);
-        tabLayout.getTabAt(4).setCustomView(tabFive);
+        tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+        tabLayout.getTabAt(3).setIcon(tabIcons[3]);
+        tabLayout.getTabAt(4).setIcon(tabIcons[4]);
     }
+
+
 
 
 

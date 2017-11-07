@@ -5,6 +5,7 @@
         android:icon="@drawable/ic_search"
         app:showAsAction="ifRoom"
         android:title="search"
+        app:actionViewClass="android.support.v7.widget.SearchView"
         android:visible="true">
     </item>
 
