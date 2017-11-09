@@ -14,6 +14,9 @@ public class searchModel {
     public String getText() {
         return mText;
     }
+    public String setText() {
+        return mText;
+    }
 
 
 }

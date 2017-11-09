@@ -34,6 +34,9 @@
     <string name="title_activity_test_google_signin">testGoogleSignin</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_label">VING</string>
+    <string name="search_hint">Sök på ving.se</string>
+    <string name="title_activity_search_filter">searchFilterActivity</string>
+
 
 </resources>

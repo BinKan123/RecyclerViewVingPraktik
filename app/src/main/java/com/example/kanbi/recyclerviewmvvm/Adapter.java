@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kanbi.recyclerviewmvvm.searchBar.searchFilterActivity;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
@@ -92,6 +93,10 @@ public class Adapter extends RecyclerView.Adapter <Adapter.ViewHolder>{
 
                     //Toast.makeText(context,"The Item Clicked is" + getAdapterPosition(),Toast.LENGTH_SHORT).show();
                 break;
+
+                case 2:
+                    intent=new Intent(context, searchFilterActivity.class);
+                    break;
 
                 default:
                     intent=new Intent(context,Main4Activity.class);
