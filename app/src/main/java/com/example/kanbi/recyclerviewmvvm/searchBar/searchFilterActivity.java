@@ -4,10 +4,14 @@ import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.database.MatrixCursor;
 import android.os.Bundle;
+import android.provider.BaseColumns;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.CursorAdapter;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -109,14 +113,42 @@ public class searchFilterActivity extends AppCompatActivity {
         // Inflate the options menu from XML
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_toolbar, menu);
+       // MenuItem searchItem = menu.findItem(R.id.action_search);
+        //final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
 
         // Get the SearchView and set the searchable configuration
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        final SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
         // Assumes current activity is the searchable activity
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
         searchView.setIconifiedByDefault(false); // Do not iconify the widget; expand it by default
 
+       /* final List<String> suggestions = new ArrayList<>();
+
+        final CursorAdapter suggestionAdapter = new SimpleCursorAdapter(this,
+                android.R.layout.simple_list_item_1,
+                null,
+                new String[]{SearchManager.SUGGEST_COLUMN_TEXT_1},
+                new int[]{android.R.id.text1},
+                0);
+
+        searchView.setSuggestionsAdapter(suggestionAdapter);
+
+        searchView.setOnSuggestionListener(new SearchView.OnSuggestionListener() {
+            @Override
+            public boolean onSuggestionSelect(int position) {
+                return false;
+            }
+
+            @Override
+            public boolean onSuggestionClick(int position) {
+                searchView.setQuery(suggestions.get(position), true);
+                searchView.clearFocus();
+                return true;
+            }
+        });
+              */
 
         // searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -127,13 +159,28 @@ public class searchFilterActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 mAdapter.getFilter().filter(newText);
+                /* // Hit the network and take all the suggestions and store them in List 'suggestions'
+
+                                 String[] columns = { BaseColumns._ID,
+                                                         SearchManager.SUGGEST_COLUMN_TEXT_1,
+                                                         SearchManager.SUGGEST_COLUMN_INTENT_DATA,
+                                                     };
+                                 MatrixCursor cursor = new MatrixCursor(columns);
+                                 for (int i = 0; i < suggestions.size(); i++) {
+                                     String[] tmp = {Integer.toString(i),suggestions.get(i),suggestions.get(i)};
+                                     cursor.addRow(tmp);
+                                 }
+                                 suggestionAdapter.swapCursor(cursor);     */
+
+
                 return true;
 
             }
 
 
     });
-        return true;
+        //return true;
+         return super.onCreateOptionsMenu(menu);
     }
 
     @Override

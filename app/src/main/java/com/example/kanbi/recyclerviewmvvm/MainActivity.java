@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
     //actionbar
 
-   /* @Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.menu_toolbar,menu);
@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
 
-    }*/
+    }
 
     //viewpager
 
