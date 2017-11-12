@@ -105,6 +105,8 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.ViewHolder
             }
         };
     }
+
+
     /*
 //another solution for animation of search result list
     public void animateTo(List<searchModel> models) {

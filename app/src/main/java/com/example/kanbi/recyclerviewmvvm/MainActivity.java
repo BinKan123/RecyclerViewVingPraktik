@@ -1,5 +1,6 @@
 package com.example.kanbi.recyclerviewmvvm;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
@@ -30,6 +31,7 @@ import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.Ja
 import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.MarFragment;
 import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.SectionPageAdapter;
 import com.example.kanbi.recyclerviewmvvm.minSida.MinSidaFragment;
+import com.example.kanbi.recyclerviewmvvm.searchBar.searchFilterActivity;
 import com.example.kanbi.recyclerviewmvvm.sistaMinuten.SistaMinFragment;
 
 
@@ -110,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
     //actionbar
 
-   /* @Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.menu_toolbar,menu);
@@ -122,16 +124,20 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_search:
-                Toast.makeText(MainActivity.this,"search",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(this, searchFilterActivity.class);
+                startActivity(intent);
+
                 return true;
             case R.id.action_myacc:
-                Toast.makeText(MainActivity.this,"myAccount",Toast.LENGTH_SHORT).show();
+                Fragment fragment = new MinSidaFragment();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.activity_main, fragment).commit();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
 
-    }*/
+    }
 
     //viewpager
 
