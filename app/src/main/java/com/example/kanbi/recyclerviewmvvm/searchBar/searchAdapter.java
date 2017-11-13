@@ -8,9 +8,12 @@ import android.view.ViewGroup;
 import android.widget.Filter;
 
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.kanbi.recyclerviewmvvm.R;
+import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.JanRecyclerView.climateAdapter;
+import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.JanRecyclerView.climateData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,43 +25,70 @@ import java.util.List;
 
 public class searchAdapter extends RecyclerView.Adapter<searchAdapter.ViewHolder> implements Filterable {
 
-
-    private List<searchModel> mArrayList;
-    private List<searchModel> mFilteredList;
-
-    public searchAdapter(List<searchModel> List) {
-        mArrayList = List;
-        mFilteredList = List;
+    //interface
+    private searchAdapter.OnClickListener onClicklistener;
+    public interface OnClickListener {
+        void onItemClick(searchModel itemClicked);
     }
 
 
+    private ArrayList<searchModel> mArrayList;
+    private List<searchModel> mFilteredList;
+
+    public searchAdapter(ArrayList<searchModel> List, searchAdapter.OnClickListener onClicklistener) {
+        mArrayList = List;
+        mFilteredList = List;
+        this.onClicklistener = onClicklistener;
+    }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView tvText;
+        public ImageView mImageView;
+        public TextView hotelName;
+        public TextView hotelStar;
+        public TextView hotelDetails;
+        public TextView webURL;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            tvText = (TextView) itemView.findViewById(R.id.tvText);
+            hotelName=(TextView) itemView.findViewById(R.id.name);
+            hotelDetails=(TextView) itemView.findViewById(R.id.details);
+            mImageView=(ImageView) itemView.findViewById(R.id.imageHotel);
+
         }
 
-        public void bind(searchModel model) {
-            tvText.setText(model.getText());
-        }
     }
+
 
     @Override
     public searchAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View itemView =  LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.search_item, viewGroup, false);
+        View itemView =  LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.hotel_card, viewGroup, false);
         return new ViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(searchAdapter.ViewHolder viewHolder, int i) {
+        final searchModel item = searchModel.get(i);
+
         searchModel searchResult=mFilteredList.get(i);
-        viewHolder.tvText.setText(mFilteredList.get(i).getText());
+
+        viewHolder.hotelName.setText(item.getHotelName());
+        viewHolder.hotelDetails.setText(item.getHotelDetails());
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(onClicklistener!=null)
+                {
+                    onClicklistener.onItemClick(item);
+
+                }
+
+            }
+        });
     }
 
     @Override
