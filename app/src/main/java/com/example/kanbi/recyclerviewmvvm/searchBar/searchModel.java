@@ -24,14 +24,16 @@ public class searchModel {
 
     private String hotelImgURL;
     private String hotelName;
-    private String hotelStar;
+    private String hotelType;
+    //private String hotelStar;
     private String hotelDetails;
     private String webURL;
 
-    public searchModel(String hotelImgURL, String hotelName, String hotelStar, String hotelDetails, String webURL) {
+    public searchModel(String hotelImgURL, String hotelName,String hotelType, String hotelStar, String hotelDetails, String webURL) {
         this.hotelImgURL = hotelImgURL;
         this.hotelName = hotelName;
-        this.hotelStar = hotelStar;
+        this.hotelType = hotelType;
+       // this.hotelStar = hotelStar;
         this.hotelDetails = hotelDetails;
         this.webURL = webURL;
     }
@@ -52,13 +54,21 @@ public class searchModel {
         this.hotelName = hotelName;
     }
 
-    public String getHotelStar() {
+    public String getHotelType() {
+        return hotelType;
+    }
+
+    public void setHotelType(String hotelType) {
+        this.hotelType = hotelType;
+    }
+
+    /*public String getHotelStar() {
         return hotelStar;
     }
 
     public void setHotelStar(String hotelStar) {
         this.hotelStar = hotelStar;
-    }
+    }*/
 
     public String getHotelDetails() {
         return hotelDetails;
@@ -75,6 +85,7 @@ public class searchModel {
     public void setWebURL(String newURL) {
         this.webURL = newURL;
     }
+
 }
 
 

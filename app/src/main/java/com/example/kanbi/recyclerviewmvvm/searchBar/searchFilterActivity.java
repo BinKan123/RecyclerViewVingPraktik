@@ -5,6 +5,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -41,7 +42,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class searchFilterActivity extends AppCompatActivity {
+public class searchFilterActivity extends AppCompatActivity implements searchAdapter.OnClickListener{
     private RecyclerView mRecyclerView;
     private searchAdapter mAdapter;
     private ArrayList<searchModel> list;
@@ -49,7 +50,9 @@ public class searchFilterActivity extends AppCompatActivity {
     private SearchView.SearchAutoComplete   searchAutoComplete;
     private ArrayList<String> itemlist;
 
-    private static final String URL_Data="https://api.myjson.com/bins/uvo9r";
+    //private static final String URL_Data="https://api.myjson.com/bins/uvo9r";
+
+    private static final String URL_Data="https://api.myjson.com/bins/9r4pv";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,11 +83,13 @@ public class searchFilterActivity extends AppCompatActivity {
                         progressDialog.dismiss();
                         try {
                             JSONObject jsonObject = new JSONObject(s);
-                            JSONArray array=jsonObject.getJSONArray("countryName");
+                            JSONArray array=jsonObject.getJSONArray("hotelBooking");
 
                             for (int i=0;i<array.length();i++){
                                 JSONObject jo=array.getJSONObject(i);
-                                searchModel item=new searchModel(jo.getString("countryName"));
+                                searchModel item=new searchModel(jo.getString("hotelName"),
+                                        jo.getString("hotelType"),
+                                        jo.getString("hotelImgURL"),jo.getString("hotelDetails"));
                                 list.add(item);
                             }
                             mAdapter=new searchAdapter(list);
@@ -114,6 +119,14 @@ public class searchFilterActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onItemClick(searchModel itemClicked) {
+        itemClicked.getWebURL();
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(itemClicked.getWebURL()));
+        startActivity(intent);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -130,7 +143,7 @@ public class searchFilterActivity extends AppCompatActivity {
 
         searchAutoComplete.setDropDownBackgroundResource(R.drawable.color_cursor_white);
        // searchAutoComplete.setDropDownAnchor(R.id.action_search);
-        searchAutoComplete.setThreshold(2);
+      //  searchAutoComplete.setThreshold(2);
 
         itemlist= new ArrayList<String>();
         itemlist.add("hotel");

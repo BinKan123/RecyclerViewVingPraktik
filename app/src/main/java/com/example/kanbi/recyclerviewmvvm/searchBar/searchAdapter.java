@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.kanbi.recyclerviewmvvm.R;
 import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.JanRecyclerView.climateAdapter;
 import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.JanRecyclerView.climateData;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,7 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.ViewHolder
 
 
     private ArrayList<searchModel> mArrayList;
-    private List<searchModel> mFilteredList;
+    private ArrayList<searchModel> mFilteredList;
 
     public searchAdapter(ArrayList<searchModel> List, searchAdapter.OnClickListener onClicklistener) {
         mArrayList = List;
@@ -46,6 +47,7 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.ViewHolder
 
         public ImageView mImageView;
         public TextView hotelName;
+        public TextView hotelType;
         public TextView hotelStar;
         public TextView hotelDetails;
         public TextView webURL;
@@ -55,6 +57,7 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.ViewHolder
             super(itemView);
 
             hotelName=(TextView) itemView.findViewById(R.id.name);
+            hotelType=(TextView) itemView.findViewById(R.id.hotelType);
             hotelDetails=(TextView) itemView.findViewById(R.id.details);
             mImageView=(ImageView) itemView.findViewById(R.id.imageHotel);
 
@@ -70,13 +73,19 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(searchAdapter.ViewHolder viewHolder, int i) {
-        final searchModel item = searchModel.get(i);
+    public void onBindViewHolder(final searchAdapter.ViewHolder viewHolder, final int i) {
+        final searchModel item = mArrayList.get(i);
 
         searchModel searchResult=mFilteredList.get(i);
 
         viewHolder.hotelName.setText(item.getHotelName());
+        viewHolder.hotelType.setText(item.getHotelType());
         viewHolder.hotelDetails.setText(item.getHotelDetails());
+
+        final Context context = viewHolder.itemView.getContext();
+
+        Picasso.with(context).load(item.getHotelImgURL()).into(viewHolder.mImageView);
+
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,7 +123,7 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.ViewHolder
 
                     for (searchModel search : mArrayList) {
 
-                        if (search.getText().toLowerCase().contains(charString)||(search.getText().toUpperCase().contains(charString) )) {
+                        if (search.getHotelName().toLowerCase().contains(charString)||(search.getHotelName().toUpperCase().contains(charString) )) {
 
                             filteredList.add(search);
                         }
