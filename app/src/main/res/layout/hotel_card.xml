@@ -53,16 +53,21 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/name"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/inspiration" />
+        app:srcCompat="@drawable/inspiration"
+        app:layout_constraintRight_toLeftOf="@+id/details"
+        android:layout_marginRight="8dp" />
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="232dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="-3dp"
+        android:layout_width="219dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="0dp"
         android:text="TextView"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="152dp" />
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/hotelType" />
 
     <ImageView
         android:id="@+id/imageView16"
@@ -76,17 +81,18 @@
 
     <TextView
         android:id="@+id/details"
-        android:layout_width="232dp"
+        android:layout_width="0dp"
         android:layout_height="39dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="@+id/imageView16"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView20"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        android:layout_marginRight="4dp"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imageView16"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <TextView
         android:id="@+id/hotelType"
@@ -97,6 +103,7 @@
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/imageView19"
         app:layout_constraintTop_toBottomOf="@+id/name"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="152dp" />
+        app:layout_constraintVertical_bias="0.272"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/details" />
 </android.support.constraint.ConstraintLayout>

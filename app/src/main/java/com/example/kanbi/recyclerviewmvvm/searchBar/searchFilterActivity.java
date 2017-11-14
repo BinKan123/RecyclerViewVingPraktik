@@ -52,7 +52,7 @@ public class searchFilterActivity extends AppCompatActivity implements searchAda
 
     //private static final String URL_Data="https://api.myjson.com/bins/uvo9r";
 
-    private static final String URL_Data="https://api.myjson.com/bins/9r4pv";
+    private static final String URL_Data="https://api.myjson.com/bins/tq8u3";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,10 +89,10 @@ public class searchFilterActivity extends AppCompatActivity implements searchAda
                                 JSONObject jo=array.getJSONObject(i);
                                 searchModel item=new searchModel(jo.getString("hotelName"),
                                         jo.getString("hotelType"),
-                                        jo.getString("hotelImgURL"),jo.getString("hotelDetails"));
+                                        jo.getString("hotelImgURL"),jo.getString("hotelDetails"),jo.getString("hotelWebURL"));
                                 list.add(item);
                             }
-                            mAdapter=new searchAdapter(list);
+                            mAdapter=new searchAdapter(list,searchFilterActivity.this);
                             mRecyclerView.setAdapter(mAdapter);
 
 

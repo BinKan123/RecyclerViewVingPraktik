@@ -50,7 +50,7 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.ViewHolder
         public TextView hotelType;
         public TextView hotelStar;
         public TextView hotelDetails;
-        public TextView webURL;
+
 
 
         public ViewHolder(View itemView) {

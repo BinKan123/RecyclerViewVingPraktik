@@ -22,14 +22,15 @@ public class searchModel {
 
 public class searchModel {
 
-    private String hotelImgURL;
+
     private String hotelName;
     private String hotelType;
+    private String hotelImgURL;
     //private String hotelStar;
     private String hotelDetails;
     private String webURL;
 
-    public searchModel(String hotelImgURL, String hotelName,String hotelType, String hotelStar, String hotelDetails, String webURL) {
+    public searchModel( String hotelName,String hotelType, String hotelImgURL, String hotelDetails, String webURL) {
         this.hotelImgURL = hotelImgURL;
         this.hotelName = hotelName;
         this.hotelType = hotelType;
