@@ -47,12 +47,11 @@ public class searchFilterActivity extends AppCompatActivity implements searchAda
     private searchAdapter mAdapter;
     private ArrayList<searchModel> list;
     private SearchView searchView;
-    private SearchView.SearchAutoComplete   searchAutoComplete;
+    private SearchView.SearchAutoComplete searchAutoComplete;
     private ArrayList<String> itemlist;
 
-    //private static final String URL_Data="https://api.myjson.com/bins/uvo9r";
-
-    private static final String URL_Data="https://api.myjson.com/bins/tq8u3";
+    //private static final String URL_Data="https://api.myjson.com/bins/s50sz";
+    private static final String URL_Data="https://api.myjson.com/bins/12hyqb";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +64,6 @@ public class searchFilterActivity extends AppCompatActivity implements searchAda
         mRecyclerView.setLayoutManager(layoutManager);
         list=new ArrayList<>();
         loadRecyclerViewData();
-
-
 
     }
 

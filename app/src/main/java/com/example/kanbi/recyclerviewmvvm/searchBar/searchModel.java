@@ -4,20 +4,6 @@ package com.example.kanbi.recyclerviewmvvm.searchBar;
  * Created by 5261 on 2017-11-07.
  */
 
-/*
-//Test for String array
-public class searchModel {
-    private final String mText;
-
-    public searchModel(String text) {
-        mText = text;
-    }
-
-    public String getText() {
-        return mText;
-    }
-
-}*/
 
 
 public class searchModel {
@@ -26,18 +12,26 @@ public class searchModel {
     private String hotelName;
     private String hotelType;
     private String hotelImgURL;
-    //private String hotelStar;
+   // private String hotelRating;
     private String hotelDetails;
     private String webURL;
 
-    public searchModel( String hotelName,String hotelType, String hotelImgURL, String hotelDetails, String webURL) {
+    public searchModel( String hotelName,String hotelType,String hotelRating, String hotelImgURL, String hotelDetails, String webURL) {
         this.hotelImgURL = hotelImgURL;
         this.hotelName = hotelName;
         this.hotelType = hotelType;
-       // this.hotelStar = hotelStar;
+      //  this.hotelRating = hotelRating;
         this.hotelDetails = hotelDetails;
         this.webURL = webURL;
     }
+
+ /*   public String getHotelRating() {
+        return hotelRating;
+    }
+
+    public void setHotelRating(String hotelRating) {
+        this.hotelRating = hotelRating;
+    }*/
 
     public String getHotelImgURL() {
         return hotelImgURL;
@@ -62,14 +56,6 @@ public class searchModel {
     public void setHotelType(String hotelType) {
         this.hotelType = hotelType;
     }
-
-    /*public String getHotelStar() {
-        return hotelStar;
-    }
-
-    public void setHotelStar(String hotelStar) {
-        this.hotelStar = hotelStar;
-    }*/
 
     public String getHotelDetails() {
         return hotelDetails;

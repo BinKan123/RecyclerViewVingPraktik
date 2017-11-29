@@ -4,7 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -39,5 +41,23 @@ public class SectionPageAdapter extends FragmentPagerAdapter{
     @Override
     public int getCount() {
         return mfragmentList.size();
+    }
+
+    public  int getPositionForMonth(){
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+        simpleDateFormat.applyPattern("MMM");
+        Date date=new Date();
+        String currentMonth = simpleDateFormat.format(date);
+
+        int position=mFragmentTitleList.indexOf(currentMonth);
+
+       /*if (position>0){
+            return position;
+
+        }*/
+
+        return position;
+
     }
 }

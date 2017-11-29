@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.kanbi.recyclerviewmvvm.R;
 import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.JanRecyclerView.climateAdapter;
 import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.JanRecyclerView.climateData;
+import com.iarcuschin.simpleratingbar.SimpleRatingBar;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.ViewHolder
         public ImageView mImageView;
         public TextView hotelName;
         public TextView hotelType;
-        public TextView hotelStar;
+        public SimpleRatingBar hotelRating;
         public TextView hotelDetails;
 
 
@@ -60,6 +61,7 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.ViewHolder
             hotelType=(TextView) itemView.findViewById(R.id.hotelType);
             hotelDetails=(TextView) itemView.findViewById(R.id.details);
             mImageView=(ImageView) itemView.findViewById(R.id.imageHotel);
+            hotelRating=(SimpleRatingBar) itemView.findViewById(R.id.ratingBar);
 
         }
 
@@ -81,6 +83,7 @@ public class searchAdapter extends RecyclerView.Adapter<searchAdapter.ViewHolder
         viewHolder.hotelName.setText(item.getHotelName());
         viewHolder.hotelType.setText(item.getHotelType());
         viewHolder.hotelDetails.setText(item.getHotelDetails());
+       // viewHolder.hotelRating.setRating(Integer.parseInt(item.getHotelRating()));
 
         final Context context = viewHolder.itemView.getContext();
 

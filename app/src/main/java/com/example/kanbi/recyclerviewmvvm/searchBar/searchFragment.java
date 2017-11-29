@@ -61,44 +61,14 @@ public class searchFragment extends Fragment {
 
     }
 
-   /* private void loadJSON(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        RequestInterface request = retrofit.create(RequestInterface.class);
-        Call<JSONResponse> call = request.getJSON();
-        call.enqueue(new Callback<JSONResponse>() {
-            @Override
-            public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
-
-                JSONResponse jsonResponse = response.body();
-                searchList = new ArrayList<>(Arrays.asList(jsonResponse.getSearch()));
-                mAdapter = new searchAdapter(searchList);
-                mRecyclerView.setAdapter(mAdapter);
-            }
-
-            @Override
-            public void onFailure(Call<JSONResponse> call, Throwable t) {
-                Log.d("Error",t.getMessage());
-            }
-        });
-    }*/
-
-
-
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_main, menu);
-      /*  SearchManager searchManager=(SearchManager)
-                getSystemService(Context.SEARCH_SERVICE);
-        ComponentName componentName= new ComponentName(getActivity(), MainActivity.class);*/
 
         final MenuItem item = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
         searchView.setQueryHint("Sök på Ving.se");
-       // searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName));
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

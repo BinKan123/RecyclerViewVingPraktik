@@ -15,6 +15,10 @@ import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.Ja
 import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.MarFragment;
 import com.example.kanbi.recyclerviewmvvm.inspirationBooking.climateGuideTabs.SectionPageAdapter;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class warminfoActivity extends AppCompatActivity {
 
     private static final String TAG="warminfoActivity";
@@ -44,9 +48,38 @@ public class warminfoActivity extends AppCompatActivity {
         adapter.addFragment(new AprFragment(),"Apr");
         adapter.addFragment(new MayFragment(),"May");
         adapter.addFragment(new JunFragment(),"Jun");
-        adapter.addFragment(new JulFragment(),"Jul");
+        adapter.addFragment(new JulFragment(),"Nov");
 
         viewPager.setAdapter(adapter);
+        //viewPager.setCurrentItem(3);
+        //viewPager.setCurrentItem(Integer.parseInt(indexOf("Jun")));
+
+        /*int position=adapter.getPositionForMonth();
+
+        viewPager.setCurrentItem(Integer.parseInt(String.valueOf(position)));*/
+
+        int monthNo  = Calendar.getInstance().get(Calendar.MONTH);
+        if(monthNo>0&& monthNo< 13) {
+            viewPager.setCurrentItem(monthNo-3);
+        } else {
+            // the month number is higher than the number of fragments
+
+        }
+
+
+
+        /*SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+        simpleDateFormat.applyPattern("MMM");
+        Date date=new Date();
+        String currentMonth = simpleDateFormat.format(date);
+
+
+
+        if ("Jul".equals(currentMonth)) {
+            viewPager.setCurrentItem(6);
+        }*/
+
     }
+
 
 }
